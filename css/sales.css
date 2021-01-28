@@ -40,3 +40,23 @@ a:active {
   background: #265301;
   color: #CDFEAA;
 }
+
+ul {
+  margin: auto;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 5px solid bisque;
+  border-radius: 10px;
+  width: 450px;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+li {
+  text-align: left;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 5px;
+}
