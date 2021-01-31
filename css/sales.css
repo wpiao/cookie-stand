@@ -41,22 +41,24 @@ a:active {
   color: #CDFEAA;
 }
 
-ul {
-  margin: auto;
+table {
   margin-top: 10px;
-  padding: 5px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 5px solid bisque;
-  border-radius: 10px;
-  width: 450px;
-  list-style-position: inside;
-  list-style-type: disc;
+  padding: 10px;
+  margin: auto;
+
 }
 
-li {
-  text-align: left;
-  font-size: 16px;
-  font-weight: normal;
+tr {
   padding: 5px;
+}
+
+th {
+  border: 2px solid bisque;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+
+td {
+  border: 2px solid bisque;
 }
