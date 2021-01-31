@@ -52,19 +52,23 @@ const dubai = new ShopLocation('Dubai', 11, 38, 3.7);
 const paris = new ShopLocation('Paris', 20, 38, 2.3);
 const lima = new ShopLocation('Lima', 2, 16, 4.6);
 
-// Render table head
-const thead = document.getElementById('sales-head');
-const trHead = document.createElement('tr');
-thead.appendChild(trHead);
-const thHead = document.createElement('th');
-thHead.textContent = '';
-trHead.appendChild(thHead);
-for (let i = 0; i < hours.length; i++) {
-  let currenthour = hours[i];
-  let th = document.createElement('th');
-  th.textContent = currenthour;
-  trHead.appendChild(th);
-}
+// Render table header function
+const renderTableHeader = function () {
+  const thead = document.getElementById('sales-head');
+  const trHead = document.createElement('tr');
+  thead.appendChild(trHead);
+  const thHead = document.createElement('th');
+  thHead.textContent = '';
+  trHead.appendChild(thHead);
+  for (let i = 0; i < hours.length; i++) {
+    let currenthour = hours[i];
+    let th = document.createElement('th');
+    th.textContent = currenthour;
+    trHead.appendChild(th);
+  }
+};
+
+renderTableHeader();
 
 // Render table row for each location
 const renderAll = function () {
@@ -75,20 +79,24 @@ const renderAll = function () {
 
 renderAll();
 
-// Render table foot
-const tfoot = document.getElementById('sales-foot');
-const trFoot = document.createElement('tr');
-tfoot.appendChild(trFoot);
-const thFoot = document.createElement('th');
-thFoot.textContent = 'Totals';
-trFoot.appendChild(thFoot);
-for (let i = 0; i < hours.length; i++) {
-  let totalCookiesEachHour = 0;
-  for (let j = 0; j < allLocations.length; j++) {
-    let currentLocation = allLocations[j];
-    totalCookiesEachHour += currentLocation.cookiesSoldEachHourAndTotalArray[i];
+// Render table footer function
+const renderTableFooter = function () {
+  const tfoot = document.getElementById('sales-foot');
+  const trFoot = document.createElement('tr');
+  tfoot.appendChild(trFoot);
+  const thFoot = document.createElement('th');
+  thFoot.textContent = 'Totals';
+  trFoot.appendChild(thFoot);
+  for (let i = 0; i < hours.length; i++) {
+    let totalCookiesEachHour = 0;
+    for (let j = 0; j < allLocations.length; j++) {
+      let currentLocation = allLocations[j];
+      totalCookiesEachHour += currentLocation.cookiesSoldEachHourAndTotalArray[i];
+    }
+    let tdFoot = document.createElement('td');
+    tdFoot.textContent = totalCookiesEachHour;
+    trFoot.appendChild(tdFoot);
   }
-  let tdFoot = document.createElement('td');
-  tdFoot.textContent = totalCookiesEachHour;
-  trFoot.appendChild(tdFoot);
-}
+};
+
+renderTableFooter();
