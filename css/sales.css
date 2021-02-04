@@ -1,10 +1,15 @@
 body {
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   background-color: azure;
   width: 960px;
   margin: auto;
 }
 
+img {
+  margin: 10px;
+  padding: 5px;
+}
 h1 {
   margin: 10px;
   padding: 5px;
@@ -42,14 +47,15 @@ a:active {
 }
 
 table {
-  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
   padding: 10px;
-  margin: auto;
-
+  width: 960px;
+  font-size: 12px;
 }
 
 tr {
-  padding: 5px;
+  padding: 3px;
 }
 
 th {
