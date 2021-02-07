@@ -11,5 +11,8 @@ In this lab, I refactored previous lab code by using JS constructor. In this way
 ## Lab: 08 - Work on styling the cookie stand project - 2/4/2021  
 In this lab, I was working on styling the project. First, I added required elements to HTML files and then worked on styling from top to bottom, left to right. I used `float` to position the elements properly.
 
+## Lab: 09 - Add a form to the cookie stand project - 2/6/2021  
+In this lab, I added a form in the `sales.html` file and I added an event listener and an event handler in the `app.js` file to handle the form submission. When users fill in the form and submit it, it will add a row of data in the table and the footer row will be updated accordingly.
+
 ## References 
 1. [CSS Reset](https://meyerweb.com/eric/tools/css/reset/)
