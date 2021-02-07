@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 'use strict';
 
 // Define global variables
@@ -34,7 +33,6 @@ ShopLocation.prototype.render = function () {
   this.calCookiesSoldEachHourAndTotal();
   const tbody = document.getElementById('sales-body');
   const tr = document.createElement('tr');
-  tbody.appendChild(tr);
   const th = document.createElement('th');
   th.textContent = this.name;
   tr.appendChild(th);
@@ -43,20 +41,20 @@ ShopLocation.prototype.render = function () {
     td.textContent = this.cookiesSoldEachHourAndTotalArray[i];
     tr.appendChild(td);
   }
+  tbody.appendChild(tr);
 };
 
 // Create 5 objects for the locations by using constructor function
-const seattle = new ShopLocation('Seattle', 23, 65, 6.3);
-const tokyo = new ShopLocation('Tokyo', 3, 24, 1.2);
-const dubai = new ShopLocation('Dubai', 11, 38, 3.7);
-const paris = new ShopLocation('Paris', 20, 38, 2.3);
-const lima = new ShopLocation('Lima', 2, 16, 4.6);
+new ShopLocation('Seattle', 23, 65, 6.3);
+new ShopLocation('Tokyo', 3, 24, 1.2);
+new ShopLocation('Dubai', 11, 38, 3.7);
+new ShopLocation('Paris', 20, 38, 2.3);
+new ShopLocation('Lima', 2, 16, 4.6);
 
 // Render table header function
 const renderTableHeader = function () {
   const thead = document.getElementById('sales-head');
   const trHead = document.createElement('tr');
-  thead.appendChild(trHead);
   const thHead = document.createElement('th');
   thHead.textContent = '';
   trHead.appendChild(thHead);
@@ -66,24 +64,20 @@ const renderTableHeader = function () {
     th.textContent = currenthour;
     trHead.appendChild(th);
   }
+  thead.appendChild(trHead);
 };
 
-renderTableHeader();
-
-// Render table row for each location
+// Render table body - table row for each location
 const renderAll = function () {
   for (let i = 0; i < allLocations.length; i++) {
     allLocations[i].render();
   }
 };
 
-renderAll();
-
 // Render table footer function
 const renderTableFooter = function () {
   const tfoot = document.getElementById('sales-foot');
   const trFoot = document.createElement('tr');
-  tfoot.appendChild(trFoot);
   const thFoot = document.createElement('th');
   thFoot.textContent = 'Totals';
   trFoot.appendChild(thFoot);
@@ -97,6 +91,10 @@ const renderTableFooter = function () {
     tdFoot.textContent = totalCookiesEachHour;
     trFoot.appendChild(tdFoot);
   }
+  tfoot.appendChild(trFoot);
 };
 
+// Render table - table header, table body, and table footer
+renderTableHeader();
+renderAll();
 renderTableFooter();
