@@ -94,7 +94,28 @@ const renderTableFooter = function () {
   tfoot.appendChild(trFoot);
 };
 
+// Lab-09 - Form
+const addLocationForm = document.querySelector('form');
+const handleSubmit = function (e) {
+  e.preventDefault();
+  const storeLocation = e.target.storeLocation.value;
+  const minCust = +e.target.minCust.value;
+  const maxCust = +e.target.maxCust.value;
+  const aveCookies = +e.target.aveCookies.value;
+  const newLocation = new ShopLocation(storeLocation, minCust, maxCust, aveCookies);
+  newLocation.render();
+  // remove table footer row
+  const tfoot = document.getElementById('sales-foot');
+  while (tfoot.firstChild) { // remove child node one by one
+    tfoot.removeChild(tfoot.firstChild);
+  }
+  // re-render table footer row
+  renderTableFooter();
+  e.target.reset(); // reset all input fields
+};
+
 // Render table - table header, table body, and table footer
 renderTableHeader();
 renderAll();
 renderTableFooter();
+addLocationForm.addEventListener('submit', handleSubmit);
