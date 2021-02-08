@@ -106,9 +106,7 @@ const handleSubmit = function (e) {
   newLocation.render();
   // remove table footer row
   const tfoot = document.getElementById('sales-foot');
-  while (tfoot.firstChild) { // remove child node one by one
-    tfoot.removeChild(tfoot.firstChild);
-  }
+  tfoot.removeChild(tfoot.firstChild); // remove tfoot's only child - tr - table footer row
   // re-render table footer row
   renderTableFooter();
   e.target.reset(); // reset all input fields
