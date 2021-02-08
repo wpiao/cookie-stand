@@ -30,8 +30,13 @@ ShopLocation.prototype.calCookiesSoldEachHourAndTotal = function () {
 };
 
 ShopLocation.prototype.render = function () {
-  this.calCookiesSoldEachHourAndTotal();
   const tbody = document.getElementById('sales-body');
+  const tr = this.createRow();
+  tbody.appendChild(tr);
+};
+
+ShopLocation.prototype.createRow = function () {
+  this.calCookiesSoldEachHourAndTotal();
   const tr = document.createElement('tr');
   const th = document.createElement('th');
   th.textContent = this.name;
@@ -41,7 +46,7 @@ ShopLocation.prototype.render = function () {
     td.textContent = this.cookiesSoldEachHourAndTotalArray[i];
     tr.appendChild(td);
   }
-  tbody.appendChild(tr);
+  return tr;
 };
 
 // Create 5 objects for the locations by using constructor function
@@ -102,8 +107,26 @@ const handleSubmit = function (e) {
   const minCust = +e.target.minCust.value;
   const maxCust = +e.target.maxCust.value;
   const aveCookies = +e.target.aveCookies.value;
-  const newLocation = new ShopLocation(storeLocation, minCust, maxCust, aveCookies);
-  newLocation.render();
+  let isUpdating = false;
+  // stretch goal
+  for (let i = 0; i < allLocations.length; i++) {
+    let currentLocation = allLocations[i].name.toLowerCase();
+    if (currentLocation === storeLocation.toLowerCase()) {
+      allLocations[i] = new ShopLocation(storeLocation, minCust, maxCust, aveCookies); // update current location information
+      allLocations.pop(); // remove last pushed element for hourly total calculation
+      const tbody = document.getElementById('sales-body');
+      const updatedRow = allLocations[i].createRow();
+      const oldRow = tbody.childNodes[i];
+      tbody.replaceChild(updatedRow, oldRow);
+      isUpdating = true;
+      break;
+    }
+  }
+  if (!isUpdating) {
+    const newLocation = new ShopLocation(storeLocation, minCust, maxCust, aveCookies);
+    newLocation.render();
+  }
+
   // remove table footer row
   const tfoot = document.getElementById('sales-foot');
   tfoot.removeChild(tfoot.firstChild); // remove tfoot's only child - tr - table footer row
