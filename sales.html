@@ -17,10 +17,10 @@
     <form>
       <fieldset>
         <legend>Add Store Location</legend>
-        <label for="storeLocation">Store Location<input type="text" name="storeLocation"></label>
-        <label for="minCust">Mininum Customers<input type="text" name="minCust"></label>
-        <label for="maxCust">Maximum Customers<input type="text" name="maxCust"></label>
-        <label for="aveCookies">Cookies Per Customer<input type="text" name="aveCookies"></label>
+        <label for="storeLocation">Store Location<input required type="text" name="storeLocation"></label>
+        <label for="minCust">Mininum Customers<input required type="number" name="minCust"></label>
+        <label for="maxCust">Maximum Customers<input required type="number" name="maxCust"></label>
+        <label for="aveCookies">Cookies Per Customer<input required type="number" step="any" name="aveCookies"></label>
         <button type="submit">Submit</button>
       </fieldset>
     </form>
