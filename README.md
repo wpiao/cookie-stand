@@ -14,5 +14,8 @@ In this lab, I was working on styling the project. First, I added required eleme
 ## Lab: 09 - Add a form to the cookie stand project - 2/6/2021  
 In this lab, I added a form in the `sales.html` file and I added an event listener and an event handler in the `app.js` file to handle the form submission. When users fill in the form and submit it, it will add a row of data in the table and the footer row will be updated accordingly.
 
+## Lab: 10b - Finish the salmon cookie stand project - 2/10/2021  
+In this lab, I added final styling - font color, background color, etc.
+
 ## References 
 1. [CSS Reset](https://meyerweb.com/eric/tools/css/reset/)
